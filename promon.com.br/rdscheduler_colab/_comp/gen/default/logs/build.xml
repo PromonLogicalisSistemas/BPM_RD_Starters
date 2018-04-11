@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    development component
+                     name: rdscheduler_colab
+                   vendor: promon.com.br
+                     type: J2EE
+                 sub-type: EJBModule
+              type-vendor: sap.com
+
+       software component
+                     name: RDSCHEDULER
+                   vendor: promon.com.br
+
+                 location: localDevelopment
+          source location: marce@MAVNOTE01
+            build variant: default
+
+    building on MAVNOTE01, Windows 10/amd64, version 10.0
+    using Java VM 'Java HotSpot(TM) 64-Bit Server VM', version 25.131-b11 (Oracle Corporation)
+    build started at 2018-03-23 23:03:36 GMT-03:00 (BRT)
+
+    Build Plugin 'EJBModulePlugin', Version 7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:26:50 +0200, CL239773)
+    detailed versions:
+    sap.com:tc/bi/anttasks#def     7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:41 +0200, CL239773)
+    sap.com:tc/bi/bp/ejbmodule#ejb 7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:26:50 +0200, CL239773)
+    sap.com:tc/bi/core#def         7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:27:09 +0200, CL239773)
+    sap.com:tc/bi/exception#def    7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:40 +0200, CL239773)
+    sap.com:tc/bi/extddicdb#def    7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:47 +0200, CL239773)
+    sap.com:tc/bi/extsql#def       7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:45 +0200, CL239773)
+    sap.com:tc/bi/framework#def    7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:21:29 +0200, CL239773)
+    sap.com:tc/bi/i18n#def         7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:37 +0200, CL239773)
+    sap.com:tc/bi/javatech#def     7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:22:43 +0200, CL239773)
+    sap.com:tc/bi/jdoc#def         7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:40 +0200, CL239773)
+    sap.com:tc/bi/jdoc/util#def    7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:22:25 +0200, CL239773)
+    sap.com:tc/bi/jlincbs#def      7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:52 +0200, CL239773)
+    sap.com:tc/bi/settings#version 7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:23:45 +0200, CL239773)
+    sap.com:tc/bi/util#util        7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:21:55 +0200, CL239773)
+    sap.com:tc/bi/velocity#def     7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:37 +0200, CL239773)
+    sap.com:tc/bi/wstech#def       7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:24:51 +0200, CL239773)
+    sap.com:tc/bi/xml#def          7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:25:38 +0200, CL239773)
+    sap.com:tc/moin/bi/moinext#def 7.10 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:33:49 +0200, CL421576)
+ -->
+<project name="DC Build"
+         default="build"
+         basedir=".">
+<taskdef name="MOINInit" classname="com.sap.tc.moin.ant.task.MoinInitTask"/>
+<taskdef name="MOINInitWithMetaModels" classname="com.sap.tc.moin.ant.task.MoinInitWithMetaModelsTask"/>
+<taskdef name="MOINShutdown" classname="com.sap.tc.moin.ant.task.MoinShutdownTask"/>
+<taskdef name="MoinDcConfigurationProviderProxyTask" classname="com.sap.tc.moin.bi.moinext.tasks.MoinDcConfigurationProviderProxyTask"/>
+<taskdef name="MoinShutdownHookInstallerTask" classname="com.sap.tc.moin.bi.moinext.tasks.MoinShutdownHookInstallerTask"/>
+<taskdef name="checkfileset" classname="com.sap.tools.ant.taskdefs.EmptyFilesetCheck"/>
+<taskdef name="gen_scdl" classname="com.sap.bie.sca.scdl.gen.ScdlGenerator"/>
+<taskdef name="jlinppcheck" classname="com.sap.tc.buildplugin.pp.ant.JLinEECheckTask"/>
+<taskdef name="pppacker" classname="com.sap.tc.buildplugin.pp.PPPackTask"/>
+<taskdef name="prepda" classname="com.sap.tc.buildplugin.deploy.DeployArchivePrepTask"/>
+<taskdef name="propertybag" classname="com.sap.tools.ant.taskdefs.PropertyBag"/>
+<taskdef name="timer" classname="com.sap.tools.ant.taskdefs.Timer"/>
+<taskdef name="xlf2prop" classname="com.sap.tc.buildplugin.util.XlfConverter"/>
+<!-- No webservice metamodel data found, skipping webservice generation. -->
+
+<target name="compile">
+<mkdir dir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\classes"/>
+<!-- begin generator extension type 'sap.com~sqlj' for generator id 'sap.com~javac' -->
+<!-- No *.sqlj files found, skipping SQLJ preprocessing. -->
+<!-- end generator extension type 'sap.com~sqlj' for generator id 'sap.com~javac' -->
+<!-- begin generator id 'sap.com~javac', type 'sap.com~javac' -->
+<echo message="Starting Java compiler using the current JVM"/>
+<timer/>
+<echo message="Settings:"/>
+<echo message="        debug: on"/>
+<echo message="     optimize: off"/>
+<echo message="  deprecation: default"/>
+<echo message="      verbose: default"/>
+<echo message="     encoding: UTF-8"/>
+<echo message="       source: default"/>
+<echo message="       target: default"/>
+<echo message="  source path: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab\_comp\ejbModule"/>
+<echo message="   class path:"/>
+<echo message="      C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\WSRM\sap.com\tc\esi\esp\wsrm\facade\_comp\gen\default\public\api\lib\java\tc~esi~esp~wsrm~facade~api.jar"/>
+<echo message="      C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\tc\je\scheduler\api\_comp\gen\default\public\api\lib\java\tc~je~scheduler~api.jar"/>
+<echo message="      C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\engine.jee5.facade\_comp\gen\default\public\api\lib\java\ec~java~jsf~api.jar"/>
+<echo message="      C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\engine.jee5.facade\_comp\gen\default\public\api\lib\java\engine.jee5.facade.jar"/>
+<echo message="      C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\engine.jee5.facade\_comp\gen\default\public\api\lib\java\orpersistence_client_lib_filtered.jar"/>
+<echo message="   output dir: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\classes"/>
+<checkfileset fail="false">
+<fileset dir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab\_comp\ejbModule">
+<include name="**/*.class"/>
+</fileset>
+</checkfileset>
+<javac includeAntRuntime="no"
+       destdir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\classes"
+       encoding="UTF-8"
+       deprecation="false"
+       debug="on"
+       tempdir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC">
+<src path="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab\_comp\ejbModule"/>
+<include name="**/*.java"/>
+<classpath>
+<pathelement location="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\WSRM\sap.com\tc\esi\esp\wsrm\facade\_comp\gen\default\public\api\lib\java\tc~esi~esp~wsrm~facade~api.jar"/>
+<pathelement location="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\tc\je\scheduler\api\_comp\gen\default\public\api\lib\java\tc~je~scheduler~api.jar"/>
+<pathelement location="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\engine.jee5.facade\_comp\gen\default\public\api\lib\java\ec~java~jsf~api.jar"/>
+<pathelement location="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\engine.jee5.facade\_comp\gen\default\public\api\lib\java\engine.jee5.facade.jar"/>
+<pathelement location="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ENGFACADE\sap.com\engine.jee5.facade\_comp\gen\default\public\api\lib\java\orpersistence_client_lib_filtered.jar"/>
+</classpath>
+</javac>
+<timer message="Java compilation finished in "/>
+<!-- end generator id 'sap.com~javac', type 'sap.com~javac' -->
+<!-- begin generator extension type 'sap.com~jlin' for generator id 'sap.com~javac' -->
+<!-- JLin disabled. -->
+<!-- end generator extension type 'sap.com~jlin' for generator id 'sap.com~javac' -->
+<!-- begin generator extension type 'sap.com~sqlj' for generator id 'sap.com~javac' -->
+<!-- No *.sqlj files found, skipping SQLJ post-processing. -->
+<!-- end generator extension type 'sap.com~sqlj' for generator id 'sap.com~javac' -->
+<!-- begin generator extension type 'sap.com~jdo' for generator id 'sap.com~javac' -->
+<!-- No *.jdo files found, skipping JDO enhancer. -->
+<!-- end generator extension type 'sap.com~jdo' for generator id 'sap.com~javac' -->
+<!-- begin generator extension type 'sap.com~xlf2prop' for generator id 'sap.com~javac' -->
+<echo message="Start XLF conversion"/>
+<timer/>
+<xlf2prop todir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\classes">
+<fileset dir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab\_comp\ejbModule"/>
+</xlf2prop>
+<timer message="XLF conversion finished in "/>
+<!-- end generator extension type 'sap.com~xlf2prop' for generator id 'sap.com~javac' -->
+<!-- begin generator extension type 'sap.com~jdoc' for generator id 'sap.com~javac' -->
+<!-- Javadoc generation disabled. -->
+<!-- end generator extension type 'sap.com~jdoc' for generator id 'sap.com~javac' -->
+</target>
+
+<target name="createPublicParts" depends="compile">
+<timer/>
+<pppacker ppname="client">
+</pppacker>
+<timer message="Packing of public part 'client' finished in "/>
+<timer/>
+<pppacker ppname="ejbjar">
+</pppacker>
+<timer message="Packing of public part 'ejbjar' finished in "/>
+<jlinppcheck/>
+</target>
+
+<target name="Xlf2PropBase" depends="compile">
+<!-- begin generator chain id 'sap.com~xlf2prop_gen_chain', type 'sap.com~xlf2prop_gen_chain' -->
+<!-- begin generator id 'sap.com~xlf2prop_gen_chain/xlf2prop', type 'sap.com~xlf2prop~standalone' -->
+<echo message="Start XLF conversion"/>
+<timer/>
+<xlf2prop todir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\xlf_temp">
+<fileset dir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab\_comp//mc"/>
+</xlf2prop>
+<timer message="XLF conversion finished in "/>
+<!-- end generator id 'sap.com~xlf2prop_gen_chain/xlf2prop', type 'sap.com~xlf2prop~standalone' -->
+<!-- begin generator id 'sap.com~xlf2prop_gen_chain/xlf2propflatcopy', type 'sap.com~xlf2prop~flat' -->
+<copy flatten="true"
+      includeemptydirs="false"
+      todir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\xlf_out">
+<fileset dir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\xlf_temp"/>
+</copy>
+<!-- end generator id 'sap.com~xlf2prop_gen_chain/xlf2propflatcopy', type 'sap.com~xlf2prop~flat' -->
+<!-- end generator chain id 'sap.com~xlf2prop_gen_chain', type 'sap.com~xlf2prop_gen_chain' -->
+<prepda>
+<fileset dir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\xlf_out" prefix="META-INF/sca-resources/"/>
+</prepda>
+</target>
+
+<target name="ScdlBase" depends="compile">
+<!-- begin generator chain id 'sap.com~scdl_gen_chain', type 'sap.com~scdl_gen_chain' -->
+<!-- begin generator id 'sap.com~scdl_gen_chain/moininit', type 'sap.com~moininit' -->
+<MoinDcConfigurationProviderProxyTask/>
+<MOINInit>
+<metaModelsPath>
+<pathelement location="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\ESCONF_BUILDT\sap.com\ide\es\config\mc\model\bi\_comp\gen\default\public\MM_Inf\lib\moin\sap.com~ide~es~config~mc~model_xmi.zip"/>
+<pathelement location="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\MOIN_BUILDT\sap.com\tc\moin\bi\model\textverticalization\_comp\gen\default\public\MM_Inf\lib\moin\sap.com~tc~moin~model~textverticalization_xmi.zip"/>
+</metaModelsPath>
+</MOINInit>
+<echo message="Registering folder: gensrc/extcfg for path: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC\gensrc\extcfg/"/>
+<MoinShutdownHookInstallerTask/>
+<!-- end generator id 'sap.com~scdl_gen_chain/moininit', type 'sap.com~moininit' -->
+<!-- begin generator id 'sap.com~scdl_gen_chain/gen_scdl', type 'sap.com~gen_scdl' -->
+<echo message="Starting Extension Configuration generator..."/>
+<timer/>
+<gen_scdl/>
+<timer message="Extension Configuration generator finished in "/>
+<!-- end generator id 'sap.com~scdl_gen_chain/gen_scdl', type 'sap.com~gen_scdl' -->
+<!-- begin generator id 'sap.com~scdl_gen_chain/shutdown', type 'sap.com~moinshutdown' -->
+<MOINShutdown/>
+<!-- end generator id 'sap.com~scdl_gen_chain/shutdown', type 'sap.com~moinshutdown' -->
+<!-- end generator chain id 'sap.com~scdl_gen_chain', type 'sap.com~scdl_gen_chain' -->
+<prepda>
+<fileset dir="C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\4FB9E16735893FFE8FA8C3D410A848DC/scdl_output">
+<include name="META-INF/**"/>
+</fileset>
+</prepda>
+</target>
+
+<target name="build" depends="compile,Xlf2PropBase,ScdlBase,createPublicParts">
+
+</target>
+</project>

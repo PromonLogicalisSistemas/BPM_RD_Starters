@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<job-definitions>
+	<job-definition name="RD_Escalas_Starter"
+		description="Inicia processo BPM Escalas RD utilizando a data do momento da execucao">
+	</job-definition>
+	<job-definition name="RD_Colaboradores_Starter"
+		description="Inicia processo BPM Colaboradores RD utilizando o primeiro dia do mês anterior como data de referencia">
+	</job-definition>
+	<job-definition name="RD_Colaboradores_CurrentDate_Starter"
+		description="Inicia processo BPM Colaboradores RD utilizando a data atual como data de referencia">
+	</job-definition>
+	<job-definition name="RD_HorasXColetores_Starter"
+		description="Inicia processo BPM Horas X Coletores RD">
+	</job-definition>
+	<job-definition name="RD_CustoProfissional_Starter"
+		description="Inicia processo BPM Custo Profissional RD">
+	</job-definition>
+		<job-definition name="RD_EnviaApontamentos_Starter"
+		description="Inicia processo BPM Envia Apontamentos, utilizando do inicio do mes ate ontem como periodo">
+	</job-definition>
+	<job-definition name="RD_RetornoApontamentos_Starter"
+		description="Inicia processo BPM Retorno Apontamentos (Divergencias), utilizando o primeiro dia do mês anterior como data de referencia">
+	</job-definition>
+	<job-definition name="RD_HistSituacao_Starter"
+		description="Inicia processo BPM Historico de Situacao">
+	</job-definition>
+	<job-definition name="RD_HorasDiferenciadas_Starter"
+		description="Inicia processo BPM Horas Diferenciadas utilizando o mes anterior">
+	</job-definition>
+	<job-definition name="RD_FundacPromonFuncionarios_Starter"
+		description="Inicia processo BPM Fundacao Promon Funcionarios">
+	</job-definition>
+	<job-definition name="RD_PagtoFolha_Starter"
+		description="Inicia processo BPM Pagamento Folha">
+	</job-definition>
+</job-definitions>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://promon.com.br/EnviaApontamentoStart/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="EnviaApontamentoStart" targetNamespace="http://promon.com.br/EnviaApontamentoStart/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://promon.com.br/EnviaApontamentoStart/">
+      <xsd:element name="StartEnviaApontamento">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="data_inicio" type="xsd:string"/>
+            <xsd:element name="data_fim" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="StartEnviaApontamentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="StartEnviaApontamentoRequest">
+    <wsdl:part element="tns:StartEnviaApontamento" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="EnviaApontamentoStart">
+    <wsdl:operation name="StartEnviaApontamento">
+      <wsdl:input message="tns:StartEnviaApontamentoRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EnviaApontamentoStartSOAP" type="tns:EnviaApontamentoStart">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="StartEnviaApontamento">
+      <soap:operation soapAction="http://promon.com.br/EscalasStart/StartEnviaApontamento"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    
+  </wsdl:binding>
+  <wsdl:service name="EnviaApontamentoStart">
+    <wsdl:port binding="tns:EnviaApontamentoStartSOAP" name="EnviaApontamentoStartSOAP">
+      <soap:address location="http://br1sap20.br.promonlogicalis.com:50000/bpm/promoncombr/rd/EnviaApontamentoStarter"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+  
+</wsdl:definitions>

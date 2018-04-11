@@ -1,0 +1,118 @@
+Development Component Build (2018-03-23 23:03:40 GMT-03:00 (BRT))
+  Component name: rdscheduler_colab_ear
+  Component vendor: promon.com.br
+  SC compartment: RDSCHEDULER
+  Configuration: LocalDevelopment
+  Location: localDevelopment
+  Source code location: marce@MAVNOTE01
+  DC root folder: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab_ear\_comp\
+  DC type: J2EE
+  DC subtype: Enterprise Application
+  Host: MAVNOTE01
+
+DC Model check:
+   DC is available locally
+   validating dependency to build plugin "sap.com/tc/bi/bp/enterpriseApplication"
+   validating dependency to used DC "promon.com.br/po"
+   validating dependency to  public part "mc" of DC "promon.com.br/po"
+   validating dependency to  public part "ejbjar" of DC "promon.com.br/rdscheduler_colab"
+   validating dependency to  public part "def" of DC "sap.com/bie/sca/contributionxml/gen"
+   DC model check OK
+
+Start build plugin:
+   using build plugin: sap.com/tc/bi/bp/enterpriseApplication
+   starting build plugin from : C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\SAP_BUILDT\sap.com\tc\bi\bp\enterpriseApplication\_comp\gen\default\public\enterpriseApplication\
+
+
+
+Build Plugin 'EnterpriseApplicationPlugin', Version 7.30 SP 5 (NW750CORE_05_REL, built on 2016-09-05 17:24:14 +0200, CL239773)
+   development component:  rdscheduler_colab_ear (promon.com.br)
+      software component:  RDSCHEDULER (promon.com.br)
+                location:  localDevelopment
+                    type:  J2EE, subtype Enterprise Application
+           build variant:  default
+         source location:  marce@MAVNOTE01
+         output location:  C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t2\0A73016141D71920FD0C3B88CAD15E94\default
+       generation folder:  C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\0A73016141D71920FD0C3B88CAD15E94
+       plugin start time:  2018-03-23 23:03:40 GMT-03:00 (BRT)
+                 Java VM:  Java HotSpot(TM) 64-Bit Server VM, 25.131-b11 (1.8, Oracle Corporation)
+
+
+General options:
+  convert *.xlf to *.properties: yes
+  include sources for debugging: yes
+ 
+
+
+Checking path lengths for sources
+Path length checks finished in 0.002 seconds
+ 
+Preparing data context..
+Data context preparation finished in 0.051 seconds
+ 
+Creating Ant build file..
+  Creating output file: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t2\0A73016141D71920FD0C3B88CAD15E94\default\logs\build.xml
+  Using Java class:     com.sap.tc.buildplugin.BuildEnterpriseApplication
+Target "createDeployArchive" has a dependency on "compile" but no such target exists. Dependency will be ignored.
+Build file creation finished in 0.076 seconds
+ 
+Starting Ant..
+  Using build file:     C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t2\0A73016141D71920FD0C3B88CAD15E94\default\logs\build.xml
+  Using build target:   build
+  Using Ant version:    1.7.1
+ 
+sca_contrib_target:
+      [echo] Starting sca-contribution.xml generator...
+[gen_contribution_xml] 			[SCA-CONTRIB-GEN] Sca contribution XML output location: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t\0A73016141D71920FD0C3B88CAD15E94\META-INF\sca-contribution.xml
+     [timer] Starting sca-contribution.xml generator finished in 0.039 seconds
+ 
+ 
+createDeployArchive:
+       [cdu] Preparing archive for deploy unit "default"
+       [cdu]   deployment type: "J2EE"
+ 
+       [cdu] Creating Ant build file: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t2\0A73016141D71920FD0C3B88CAD15E94\default\logs\buildDeployArchive.xml
+ 
+       [cdu] Creating descriptor META-INF/sda-dd.xml ...
+ 
+       [cdu] Skipping creation of application.xml for JEE5 archive.
+ 
+       [cdu] Validating descriptor C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab_ear\_comp\META-INF\application-j2ee-engine.xml
+       [cdu] Changing provider name "sap.com" with "promon.com.br".
+       [cdu] No file in archive matches defined module "promon.com.br~rdscheduler_colab~ejbjar.jar".
+       [cdu] No component dependency exists for reference to "scheduler~runtime" (sap.com).
+       [cdu] Adding reference for runtime dependency on component "po" (vendor "promon.com.br", type "application")
+ 
+       [cdu] Collecting modules ...
+       [cdu] Adding module 'promon.com.br~rdscheduler_colab~ejbjar.jar' from DC 'rdscheduler_colab' (vendor 'promon.com.br'), public part 'ejbjar'
+       [cdu] Missing deploy-time dependency for hard runtime reference to "scheduler~runtime" (vendor "sap.com").
+       [cdu] Ant build file creation finished in 0.122 seconds
+ 
+packDeployArchive:
+ [srcpacker] Creating source archive
+ [srcpacker] Adding source archive from promon.com.br~rdscheduler_colab
+     [timer] Source archive creation finished in 0.076 seconds
+ 
+    [jarsap] Info: JarSAP version 20090803.1000
+    [jarsap] Info: JarSAPProcessing version 20090907.1000 / JarSL version 20100616.1800
+    [jarsap] Building: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t2\0A73016141D71920FD0C3B88CAD15E94\default\deploy\promon.com.br~rdscheduler_colab_ear.ear with compression
+     [timer] JarSAP finished in 0.095 seconds
+ 
+ 
+build:
+ 
+Ant runtime 0.416 seconds
+ 
+Ant build finished OK
+ 
+Build plugin finished at 2018-03-23 23:03:41 GMT-03:00 (BRT)
+Total build plugin runtime: 0.923 seconds
+ 
+Build finished with WARNING
+
+==== Post-Processing ====   started at 2018-03-23 23:03:41.822 BRT
+Comparison of previous and actual build results took: 0 seconds
+
+Copy the build results 
+  from: C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\t2\0A73016141D71920FD0C3B88CAD15E94\default\
+  to:   C:\Users\marce\OneDrive\DEV\NWDS75.jdi\LocalDevelopment\RDSCHEDULER\promon.com.br\rdscheduler_colab_ear\_comp\gen\default\

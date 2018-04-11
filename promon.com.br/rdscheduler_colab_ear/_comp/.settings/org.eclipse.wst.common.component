@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="LocalDevelopment~rdscheduler_colab_ear~promon.com.br">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module deploy-path="/" handle="module:/resource/LocalDevelopment~po~promon.com.br/LocalDevelopment~po~promon.com.br">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="LocalDevelopment~rdscheduler_colab~promon.com.br.jar" deploy-path="/" handle="module:/resource/LocalDevelopment~rdscheduler_colab~promon.com.br/LocalDevelopment~rdscheduler_colab~promon.com.br">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
